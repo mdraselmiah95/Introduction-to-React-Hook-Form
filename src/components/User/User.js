@@ -1,5 +1,6 @@
 import React from "react";
 import Player from "../Player/Player";
+import Teacher from "../Teacher/Teacher";
 
 const User = (props) => {
   const { familiar } = props;
@@ -51,6 +52,7 @@ const User = (props) => {
       </div>
       <div>
         <h2>Profession</h2>
+        {familiar ? <Teacher /> : <Player />}
       </div>
       <div>
         <h2>Connection</h2>
