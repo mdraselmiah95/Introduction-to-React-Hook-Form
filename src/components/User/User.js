@@ -28,6 +28,11 @@ const User = (props) => {
       </div>
       <div>
         <h2>Food</h2>
+        {familiar ? (
+          <h4>Hot Egg with Vegetables </h4>
+        ) : (
+          <h4>I have no money.</h4>
+        )}
       </div>
       <div>
         <h2>a lot of things</h2>
