@@ -1,4 +1,5 @@
 import React from "react";
+import Player from "../Player/Player";
 
 const User = (props) => {
   const { familiar } = props;
@@ -53,6 +54,17 @@ const User = (props) => {
       </div>
       <div>
         <h2>Connection</h2>
+        {familiar && (
+          <div>
+            <h5>Hey Can i get your phone number.</h5>
+          </div>
+        )}
+        {familiar && <Player />}
+
+        <div>
+          <h2>Share Drink</h2>
+          {familiar || <h4>i can drink coconut water</h4>}
+        </div>
       </div>
       <div>
         <h2>Share Drink</h2>
