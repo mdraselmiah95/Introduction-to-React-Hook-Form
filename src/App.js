@@ -6,14 +6,13 @@ function App() {
     register,
     handleSubmit,
     watch,
+    reset,
     formState: { errors, touchedFields },
   } = useForm();
-  console.log(watch());
-  console.log("Error-->", errors);
-  console.log(touchedFields);
 
   const handleForm = (data) => {
     console.log(data);
+    reset();
   };
 
   return (
@@ -26,7 +25,7 @@ function App() {
             type="text"
             name="name"
             id="name"
-            {...register("name", { required: true })}
+            {...register("name", { required: true, maxLength: 20 })}
             placeholder="Enter your name..."
           />
         </div>
@@ -37,7 +36,7 @@ function App() {
             type="email"
             name="email"
             id="email"
-            {...register("email")}
+            {...register("email", { required: true })}
             placeholder="Enter your email..."
           />
         </div>
@@ -48,11 +47,16 @@ function App() {
             type="number"
             name="age"
             id="age"
-            {...register("age", { valueAsNumber: true, required: true })}
+            {...register("age", {
+              valueAsNumber: true,
+              required: true,
+              max: 90,
+              min: 16,
+            })}
             placeholder="Enter your age..."
           />
         </div>
-        <button>Submit</button>
+        <button type="submit">Submit</button>
       </form>
     </div>
   );
