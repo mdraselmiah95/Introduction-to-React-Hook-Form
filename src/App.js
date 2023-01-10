@@ -1,22 +1,22 @@
 import { useForm, Controller } from "react-hook-form";
 import "./App.css";
-
-const InputText = ({ name, label }) => {
-  <div>
-    <label htmlFor={name}>{label}</label>
-    <input type="text" id={name} />
-  </div>;
-};
+import { Input } from "@mui/material";
 
 function App() {
   const {
-    register,
     handleSubmit,
     watch,
     control,
     reset,
-    formState: { errors, touchedFields },
-  } = useForm();
+    formState: { errors },
+  } = useForm({
+    mode: "onSubmit",
+    defaultValues: {
+      name: "",
+      email: "",
+      age: 0,
+    },
+  });
 
   const handleForm = (data) => {
     console.log(data);
@@ -30,46 +30,21 @@ function App() {
         <Controller
           name="name"
           control={control}
-          render={() => <InputText name={"name"} label={"Name:"} />}
+          render={({ field }) => <Input {...field} />}
         />
 
-        <div>
-          <label htmlFor="name">Name:</label>
-          <input
-            type="text"
-            name="name"
-            id="name"
-            {...register("name", { required: true, maxLength: 20 })}
-            placeholder="Enter your name..."
-          />
-        </div>
+        <Controller
+          name="email"
+          control={control}
+          render={({ field }) => <Input {...field} />}
+        />
 
-        <div>
-          <label htmlFor="email">Email:</label>
-          <input
-            type="email"
-            name="email"
-            id="email"
-            {...register("email", { required: true })}
-            placeholder="Enter your email..."
-          />
-        </div>
+        <Controller
+          name="number"
+          control={control}
+          render={({ field }) => <Input {...field} />}
+        />
 
-        <div>
-          <label htmlFor="age">Age:</label>
-          <input
-            type="number"
-            name="age"
-            id="age"
-            {...register("age", {
-              valueAsNumber: true,
-              required: true,
-              max: 90,
-              min: 16,
-            })}
-            placeholder="Enter your age..."
-          />
-        </div>
         <button type="submit">Submit</button>
       </form>
     </div>
@@ -77,3 +52,5 @@ function App() {
 }
 
 export default App;
+
+// Job the cool you are coolest 01816895165  Raju the
