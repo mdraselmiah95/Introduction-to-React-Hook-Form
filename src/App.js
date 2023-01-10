@@ -1,10 +1,11 @@
 import "./App.css";
-import FormOne from "./components/beautifulForm/FormOne";
+import FormTwo from "./components/beautifulForm/FormTwo";
+// import FormOne from "./components/beautifulForm/FormOne";
 
 function App() {
   return (
     <>
-      <FormOne />
+      <FormTwo />
     </>
   );
 }
