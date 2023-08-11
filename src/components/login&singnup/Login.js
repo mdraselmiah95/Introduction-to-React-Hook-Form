@@ -4,6 +4,7 @@ import { useForm } from "react-hook-form";
 import { AiFillEyeInvisible, AiFillEye } from "react-icons/ai";
 
 import loginImage from "../../assets/login.svg";
+
 const Login = () => {
   const [open, setOpen] = useState(false);
   const { register, handleSubmit, reset } = useForm();
@@ -59,6 +60,25 @@ const Login = () => {
                   ) : (
                     <AiFillEyeInvisible onClick={toggle} />
                   )}
+                </div>
+              </div>
+              <label
+                htmlFor="password"
+                className="flex self-center mx-8 mb-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+              >
+                password
+              </label>
+
+              <div className="flex items-center justify-between mx-8 text-gray-900 border border-gray-300 shadow-sm dark:text-gray-300 bg-gray-50 dark:placeholder:bg-gray-400 dark:shadow-sm dark:focus:ring-primary-300">
+                <input
+                  type={open ? "text" : "password"}
+                  id="password"
+                  {...register("password")}
+                  placeholder="password"
+                  className="bg-gray-50 text-gray-900 text-sm w-[300px border-none focus:none focus:outline-none"
+                />
+                <div className="p-2" onClick={toggle}>
+                  {open ? <AiFillEye /> : <AiFillEyeInvisible />}
                 </div>
               </div>
 
